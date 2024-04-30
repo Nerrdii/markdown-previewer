@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card';
 import Form from 'react-bootstrap/Form';
-import marked from 'marked';
+import { marked, setOptions } from 'marked';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-marked.setOptions({
-  breaks: true
+setOptions({
+  breaks: true,
 });
 
 const placeholder = `# Heading 1
@@ -40,10 +40,10 @@ Image:
 
 class App extends Component {
   state = {
-    markdown: placeholder
+    markdown: placeholder,
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ markdown: e.target.value });
   };
 
